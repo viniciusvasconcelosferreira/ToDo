@@ -43,7 +43,7 @@ class TaskController {
     }
 
     async all(req, res) {
-        await TaskModel.find({macaddress: {'$in': req.body.macaddress}})
+        await TaskModel.find({macaddress: {'$in': req.params.macaddress}})
             .sort('when')
             .then(response => {
                 return res.status(200).json(response);
@@ -108,7 +108,7 @@ class TaskController {
                 //     '$eq': false
                 // },
                 'macaddress': {
-                    '$in': req.body.macaddress
+                    '$in': req.params.macaddress
                 }
             }
         )
@@ -125,7 +125,7 @@ class TaskController {
         await TaskModel.find(
             {
                 'macaddress': {
-                    '$in': req.body.macaddress
+                    '$in': req.params.macaddress
                 },
                 'when': {
                     //$gte = greater than or equal (maior ou igual)
@@ -148,7 +148,7 @@ class TaskController {
         await TaskModel.find(
             {
                 'macaddress': {
-                    '$in': req.body.macaddress
+                    '$in': req.params.macaddress
                 },
                 'when': {
                     //$gte = greater than or equal (maior ou igual)
@@ -171,7 +171,7 @@ class TaskController {
         await TaskModel.find(
             {
                 'macaddress': {
-                    '$in': req.body.macaddress
+                    '$in': req.params.macaddress
                 },
                 'when': {
                     //$gte = greater than or equal (maior ou igual)
@@ -194,7 +194,7 @@ class TaskController {
         await TaskModel.find(
             {
                 'macaddress': {
-                    '$in': req.body.macaddress
+                    '$in': req.params.macaddress
                 },
                 'when': {
                     //$gte = greater than or equal (maior ou igual)
